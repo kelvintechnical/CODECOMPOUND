@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import WelcomeModal from "./WelcomeModal"; // Import your modal component
 
 const LineByLineTraining = () => {
-  const MILESTONES = [25, 50, 75, 100]; // Milestone percentages
+  // Memoize MILESTONES to avoid unnecessary recalculations
+  const MILESTONES = useMemo(() => [25, 50, 75, 100], []); // MILESTONES will be created once
+
   const [codeExplanation, setCodeExplanation] = useState("");
   const [projectCode, setProjectCode] = useState([]);
   const [userCode, setUserCode] = useState("");
@@ -57,7 +59,7 @@ const LineByLineTraining = () => {
       (milestone) => currentProgress >= milestone
     );
     setMilestones(reachedMilesstones);
-  }, [currentLineIndex, codeLines.length]);
+  }, [currentLineIndex, codeLines.length, MILESTONES]);
 
   // Current line and explanation
   const currentCode = codeLines[currentLineIndex]?.code;
@@ -151,6 +153,15 @@ const LineByLineTraining = () => {
         </code>
       )}
 
+      {/* Feedback */}
+      <p className="mt-4 text-lg font-medium">
+        {feedback.includes("✅") ? (
+          <span className="text-green-600">{feedback}</span>
+        ) : (
+          <span className="text-red-600">{feedback}</span>
+        )}
+      </p>
+
       {/* Code editor */}
       <div className="w-full max-w-2xl bg-white p-6 rounded-lg shadow-lg">
         <textarea
@@ -172,15 +183,6 @@ const LineByLineTraining = () => {
           Check Code
         </button>
       </div>
-
-      {/* Feedback */}
-      <p className="mt-4 text-lg font-medium">
-        {feedback.includes("✅") ? (
-          <span className="text-green-600">{feedback}</span>
-        ) : (
-          <span className="text-red-600">{feedback}</span>
-        )}
-      </p>
 
       {/* Explanation */}
       {showExplanation && (

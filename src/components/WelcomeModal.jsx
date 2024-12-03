@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react"; //import React and hooks
-import LineByLineTraining from "./LineByLineTraining";
 
 const WelcomeModal = () => {
   //Define the WelcomeModel component
@@ -17,7 +16,7 @@ const WelcomeModal = () => {
     if (displayedText.length < fullText.length) {
       const timer = setInterval(() => {
         setDisplayText((prevText) => prevText + fullText[prevText.length]);
-      }, 70); //Delay of 70ms per character
+      }, 30); //Delay of 70ms per character
       return () => clearInterval(timer); //clean up interval on component unmount
     } else {
       //once text is fully displayed, start countdown
