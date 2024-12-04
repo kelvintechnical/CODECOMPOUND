@@ -8,7 +8,7 @@ const WelcomeModal = () => {
   const [countdown, setCountdown] = useState(3); // State to control countdown value of countdown timer
   // (3) initializes the countdown with a value of 3, starting the countdown from 3 seconds
   const fullText =
-    "Hello, my name is Kelvin R. Tobias. I developed this project as part of my journey to both enhance my own understanding of programming and assist others in their learning process. I am currently pursuing a Bachelor's degree in Software Engineering at Western Governors University -- WGU -- , where I am gaining a deep understanding of computer science concepts, software development methodologies, and full-stack application development. I am set to graduate in 2025. This application marks my first venture into full-stack development, and through it, I have significantly expanded my proficiency in JavaScript and React. It is my hope that this project will not only showcase my growth but also help others as they embark on their own programming journeys.";
+    "Hello, Welcome to Code Compound. Created by Kelvin R. Tobias. Are you ready to learn?";
 
   useEffect(() => {
     //useEffect hook to handle countdown logic
