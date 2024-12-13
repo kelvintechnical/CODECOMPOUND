@@ -50,7 +50,7 @@ const LineByLineTraining = () => {
       explanation: "Filters the array to keep only even numbers",
     },
     {
-      code: "console.log(`The sum is ${sum}`);",
+      code: "console.log('The sum is ' + sum);",
       explanation: "Uses template literals to print the sum",
     },
   ];
@@ -118,7 +118,7 @@ const LineByLineTraining = () => {
         setCodeLines(pythonCodeLines);
       }
     }
-  }, [selectedLanguage]);
+  }, [selectedLanguage, javascriptCodeLines, pythonCodeLines]);
 
   const handleLanguageCompletion = () => {
     setCompletedLanguages((prev) => [...prev, selectedLanguage]);
